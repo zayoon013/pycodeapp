@@ -1,23 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import ttk
-from pygments import highlight
-from pygments.lexers import PythonLexer
-from pygments.formatters import HtmlFormatter
-
-# Function to apply syntax highlighting
-def highlight_code(event):
-    if current_text_widget is not None:  # Check if current_text_widget is set
-        code = current_text_widget.get("1.0", "end-1c")
-        highlighted_code = highlight(code, PythonLexer(), HtmlFormatter())
-        current_text_widget.delete("1.0", "end")
-        current_text_widget.insert("1.0", highlighted_code)
-
-# Create a function to set the current text widget
-def set_current_text_widget(text_widget):
-    global current_text_widget
-    current_text_widget = text_widget
-    current_text_widget.bind("<KeyRelease>", highlight_code)  # Bind the event here
 
 def run_code():
     code = current_text_widget.get("1.0", "end-1c")
